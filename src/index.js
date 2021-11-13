@@ -1,13 +1,28 @@
+// react
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+// axios
+import axios from 'axios'
+// 调试用的，不清楚怎么用
 import reportWebVitals from './reportWebVitals';
+// 外部资源,css,图片等
+import './assets/css/global.css'
+import 'antd/dist/antd.css';
+// App组件
+import App from './App';
+
+
+axios.defaults.baseURL = 'http://127.0.0.1:8888/api/private/v1/'
+axios.interceptors.request.use(config => {
+  config.headers.Authorization = window.sessionStorage.getItem('token')
+  return config
+})
+React.Component.prototype.$axios = axios
 
 ReactDOM.render(
-  <React.StrictMode>
+  <React.Fragment>
     <App />
-  </React.StrictMode>,
+  </React.Fragment>,
   document.getElementById('root')
 );
 
