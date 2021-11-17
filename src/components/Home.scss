@@ -1,0 +1,66 @@
+$headerHeight: 60px;
+$bottomHeight: 100%;
+
+.home-container {
+  height: 100vh;
+  color: #eee;
+  .topBox {
+    display: flex;
+    justify-content: space-between;
+    background-color: #373d41;
+    padding: 0px;
+    height: $headerHeight;
+    align-items: center;
+    .logo_box {
+      color: #eee;
+      // align-items: center;
+      .logo_img {
+        width: 50px;
+      }
+      span {
+        font-size: 20px;
+        margin-left: 15px;
+      }
+    }
+    .user_box {
+      margin-right: 10px;
+    }
+  }
+
+  .bottomBox {
+    height: $bottomHeight;
+    .mySider {
+      background-color: #333744;
+      height: 100%;
+      .toggleBtn {
+        align-content: center;
+        text-align: center;
+        cursor: pointer;
+      }
+      .menu {
+        border: 1px solid #333744;
+        // width: 256px;
+        background-color: #333744;
+        color: #eee;
+        .subMenu {
+          background-color: #333744;
+          .ant-menu-item {
+            color: #eee;
+          }
+          .ant-menu-item-selected {
+            color: #1890ff;
+          }
+          .menuItem {
+            margin: 0px;
+            padding: 0px;
+            background-color: #333744;
+          }
+        }
+      }
+    }
+    .myContent {
+      height: 100%;
+      color: black;
+    }
+  }
+}

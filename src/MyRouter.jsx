@@ -6,7 +6,9 @@ import { createBrowserHistory } from 'history'
 import Login from './components/login/Login'
 import Home from './components/Home'
 import ForgetPassword from './components/login/ForgetPassword'
-import V6learn from "./components/v6learn/V6learn";
+import Welcome from './components/Welcome'
+// 内容页面
+import User from './components/user'
 
 export default class MyRouter extends React.Component {
   constructor(props) {
@@ -20,13 +22,17 @@ export default class MyRouter extends React.Component {
     return (
       <Router history={this.history}>
         <Switch>
-          <Route path="/login" component={Login} ></Route>
-          <Route path="/home" component={Home}></Route>
-          <Route path="/forgetPassword" component={ForgetPassword}></Route>
-          <Route path="/v6learn" component={V6learn}></Route>
-          <Redirect to="/home" />
-        </Switch>
-      </Router>
+          <Route path="/login" component={Login}></Route>
+          <Home path="/home" history={this.history}>
+            {/* <Redirect to="/home/welcome" /> */}
+            <Route path="/home/welcome" component={Welcome}></Route>
+            <Route path="/home/users" component={User}></Route>
+          </Home>
+          <Route path="/forgetPassword" exact
+            component={ForgetPassword}></Route>
+          <Redirect to="/home"></Redirect>
+        </Switch >
+      </Router >
     )
   }
 }

@@ -10,7 +10,8 @@ import './assets/css/global.css'
 import 'antd/dist/antd.css';
 // App组件
 import App from './App';
-
+// antd
+import { message } from 'antd'
 
 axios.defaults.baseURL = 'http://127.0.0.1:8888/api/private/v1/'
 axios.interceptors.request.use(config => {
@@ -18,7 +19,7 @@ axios.interceptors.request.use(config => {
   return config
 })
 React.Component.prototype.$axios = axios
-
+React.Component.prototype.$message = message
 ReactDOM.render(
   <React.Fragment>
     <App />

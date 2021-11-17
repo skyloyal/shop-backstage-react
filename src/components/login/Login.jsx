@@ -38,19 +38,20 @@ class Login extends React.Component {
         const { data: res } = await this.$axios.post('/login', loginForm)
         console.log(res.meta.msg)
         if (res.meta.status !== 200) {
-          return
+          return this.$message.error('登录失败')
         }
         // window.sessionStorage.setItem('token', res.data.token)
         this.saveTokenInSessionStorage(res.data.token)
         if (loginForm.remember === true) {
-          this.saveLoginFormInCookie(loginForm)
+          this.saveUserInfoInLocalstorage(loginForm)
         }
         // console.log(this.history)
         this.history.push('/home')
+        this.$message.success('登录成功')
       })
       .catch(errInfo => {
         console.log(errInfo)
-        return
+        return this.$message.error('登录信息填写有误')
       })
   }
   // 重置登录信息
@@ -58,7 +59,7 @@ class Login extends React.Component {
     this.formRef.current.resetFields()
   }
   // 保存登录信息到cookie
-  saveLoginFormInCookie = (info) => {
+  saveUserInfoInLocalstorage = (info) => {
     // Object.keys(info).forEach((key) => {
     //   window.localStorage.setItem(key, info[key])
     // })
