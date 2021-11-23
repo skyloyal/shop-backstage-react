@@ -6,7 +6,7 @@ import axios from 'axios'
 // 调试用的，不清楚怎么用
 import reportWebVitals from './reportWebVitals';
 // 外部资源,css,图片等
-import './assets/css/global.css'
+import './assets/css/global.scss'
 import 'antd/dist/antd.css';
 // App组件
 import App from './App';

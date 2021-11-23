@@ -51,7 +51,7 @@ class Login extends React.Component {
       })
       .catch(errInfo => {
         console.log(errInfo)
-        return this.$message.error('登录信息填写有误')
+        return this.$message.error('登录失败')
       })
   }
   // 重置登录信息

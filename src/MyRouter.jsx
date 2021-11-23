@@ -11,10 +11,7 @@ import Welcome from './components/Welcome'
 import User from './components/user'
 
 export default class MyRouter extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {}
-  }
+
   // 导航对象，必须放在Router标签history属性
   history = createBrowserHistory()
 
@@ -24,7 +21,6 @@ export default class MyRouter extends React.Component {
         <Switch>
           <Route path="/login" component={Login}></Route>
           <Home path="/home" history={this.history}>
-            {/* <Redirect to="/home/welcome" /> */}
             <Route path="/home/welcome" component={Welcome}></Route>
             <Route path="/home/users" component={User}></Route>
           </Home>

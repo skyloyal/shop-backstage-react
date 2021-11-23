@@ -1,9 +1,8 @@
 $headerHeight: 60px;
-$bottomHeight: 100%;
 
 .home-container {
-  height: 100vh;
-  color: #eee;
+  height: 100%;
+  background-color: #f0f2f5;
   .topBox {
     display: flex;
     justify-content: space-between;
@@ -28,11 +27,10 @@ $bottomHeight: 100%;
   }
 
   .bottomBox {
-    height: $bottomHeight;
     .mySider {
       background-color: #333744;
-      height: 100%;
       .toggleBtn {
+        color: #eee;
         align-content: center;
         text-align: center;
         cursor: pointer;
@@ -43,17 +41,14 @@ $bottomHeight: 100%;
         background-color: #333744;
         color: #eee;
         .subMenu {
-          background-color: #333744;
           .ant-menu-item {
+            background-color: #333744;
             color: #eee;
+            margin: 0px;
+            padding: 0px;
           }
           .ant-menu-item-selected {
             color: #1890ff;
-          }
-          .menuItem {
-            margin: 0px;
-            padding: 0px;
-            background-color: #333744;
           }
         }
       }
@@ -61,6 +56,7 @@ $bottomHeight: 100%;
     .myContent {
       height: 100%;
       color: black;
+      padding: 15px;
     }
   }
 }

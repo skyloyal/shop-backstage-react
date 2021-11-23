@@ -1,4 +1,3 @@
-
 // react
 import { Link } from "react-router-dom";
 // antd
@@ -25,7 +24,6 @@ export default class Home extends Auth {
   // 状态对象
   state = {
     menus: [],
-    menusKeys: [],
     isCollapse: false,
     iconsObjs: {
       '125': <UserOutlined />,
@@ -58,12 +56,15 @@ export default class Home extends Auth {
     this.setState({ isCollapse: !this.state.isCollapse })
     console.log(this.state)
   }
-  switchPage = (path) => () => {
+  // [methods]切换内容页面
+  switchPage = (path, item1, item2) => () => {
     // const { item, key, keyPath, domEvent } = menuItemObj
-    // console.log(menuItemObj)
     console.log(path)// /users
-    window.sessionStorage.setItem('activePath', path)
-    this.history.push('/home' + path)
+    console.log(item1)
+    console.log(item2)
+    // window.sessionStorage.setItem('activePath', path)
+    // this.history.push('/')
+    this.history.push(`/home/${path}`, { item1, item2 })
   }
 
   // [lifecycle]
@@ -118,11 +119,20 @@ export default class Home extends Auth {
                     >
                       {item1.children.map(item2 => {
                         return (
-                          <Menu.Item
-                            onClick={this.switchPage('/' + item2.path)}
-                            className="menuItem"
+                          <Menu.Item onClick={this.switchPage(`${item2.path}`, item1, item2)}
                             key={item2.id + ''}
-                          >{item2.authName}</Menu.Item>
+                          >
+                            {/* to={`/home/${item2.path}`} */}
+                            {/* <Link className="activeItem"
+                              to={{
+                                pathname: `/home/${item2.path}`,
+                                state: { id: 'hello wordl' }
+                              }}>
+                              {item2.authName}
+                            </Link> */}
+                            {item2.authName}
+                          </Menu.Item>
+
                         )
                       })}
                     </Menu.SubMenu>
@@ -133,7 +143,6 @@ export default class Home extends Auth {
           </Sider>
           {/* 内容展示区 */}
           <Content className="myContent">
-            {/* {console.log(this.props)} */}
             {this.props.children}
           </Content>
         </Layout>

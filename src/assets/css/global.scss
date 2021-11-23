@@ -1,0 +1,41 @@
+* {
+  padding: 0px;
+  margin: 0px;
+}
+body {
+  min-width: 1100px;
+}
+a,
+li {
+  text-decoration: none;
+}
+
+@mixin button-base($color) {
+  background-color: rgba($color: $color, $alpha: 1) !important;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  span {
+    color: white;
+  }
+  &:hover {
+    background-color: rgba($color: $color, $alpha: 0.7) !important;
+  }
+}
+
+button.primary {
+  @include button-base(#409eff);
+}
+
+button.danger {
+  @include button-base(#f56c6c);
+}
+button.warning {
+  @include button-base(#e9ad52);
+}
+button.info {
+  @include button-base(#909399);
+}
+button.success {
+  @include button-base(#67c23a);
+}
