@@ -363,12 +363,6 @@ export default class User extends Auth {
         <Breadnav item1={item1} item2={item2}></Breadnav>
         {/* 内容卡片区 */}
         <Card className="user_show">
-          {/* <Space>
-            <Input.Search className="user_query" onSearch={this.searchUserByName}
-              placeholder="请输入需要查询的用户名称"
-              allowClear></Input.Search>
-            <Button type="primary">添加用户</Button>
-          </Space> */}
           <Row gutter={20}>
             <Col span={8} >
               <Input.Search

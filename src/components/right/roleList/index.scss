@@ -1,0 +1,24 @@
+.role_container {
+  .role_table {
+    margin-top: 10px;
+  }
+}
+button.opButton {
+  margin-right: 10px;
+}
+
+.expandRow {
+  border-bottom: 1px #eee solid;
+  margin-bottom: 0px;
+  padding: 5px 0px 5px 0px;
+  align-items: center;
+  // text-align: center;
+  display: flex;
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.expandTag {
+  margin: 2px 2px 2px 2px;
+}

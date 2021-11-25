@@ -7,6 +7,8 @@ import Login from './components/login/Login'
 import Home from './components/Home'
 import ForgetPassword from './components/login/ForgetPassword'
 import Welcome from './components/Welcome'
+import RoleList from './components/right/roleList'
+import RightList from './components/right/rightList'
 // 内容页面
 import User from './components/user'
 
@@ -23,6 +25,8 @@ export default class MyRouter extends React.Component {
           <Home path="/home" history={this.history}>
             <Route path="/home/welcome" component={Welcome}></Route>
             <Route path="/home/users" component={User}></Route>
+            <Route path="/home/roles" component={RoleList}></Route>
+            <Route path="/home/rights" component={RightList}></Route>
           </Home>
           <Route path="/forgetPassword" exact
             component={ForgetPassword}></Route>
