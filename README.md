@@ -68,3 +68,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `yarn build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+### 记录一个bug
+
+触发条件：当选中角色并设置其拥有的权限与原来拥有的权限一样并提交到后端服务器的时候，该角色的所有权限会被清空。
+原因：后端逻辑代码有问题。
