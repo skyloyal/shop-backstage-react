@@ -385,9 +385,9 @@ class RoleList extends Component {
   }
   addRoleDialogFormRef = createRef()
   editRoleDialogFormRef = createRef()
+
   // [lifecycle]
-  constructor(props) {
-    super(props)
+  componentDidMount() {
     this.getRoleList()
     this.getRightList()
   }
