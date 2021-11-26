@@ -9,6 +9,9 @@ import ForgetPassword from './components/login/ForgetPassword'
 import Welcome from './components/Welcome'
 import RoleList from './components/right/roleList'
 import RightList from './components/right/rightList'
+import Goods from './components/good/goodList'
+import Params from './components/good/param'
+import Categories from './components/good/cate'
 // 内容页面
 import User from './components/user'
 
