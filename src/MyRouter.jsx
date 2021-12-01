@@ -9,7 +9,9 @@ import ForgetPassword from './components/login/ForgetPassword'
 import Welcome from './components/Welcome'
 import RoleList from './components/right/roleList'
 import RightList from './components/right/rightList'
-import Goods from './components/good/goodList'
+import Goods from './components/good/goodList/'
+import AddGood from './components/good/goodList/AddGood/index.jsx'
+import EditGood from './components/good/goodList/EditGood'
 import Params from './components/good/param'
 import Categories from './components/good/cate'
 // 内容页面
@@ -30,6 +32,11 @@ export default class MyRouter extends React.Component {
             <Route path="/home/users" component={User}></Route>
             <Route path="/home/roles" component={RoleList}></Route>
             <Route path="/home/rights" component={RightList}></Route>
+            <Route path="/home/goods" component={Goods}></Route>
+            <Route path="/home/addGood" exact component={AddGood}></Route>
+            <Route path="/home/editGood" exact component={EditGood}></Route>
+            <Route path="/home/params" component={Params}></Route>
+            <Route path="/home/categories" component={Categories}></Route>
           </Home>
           <Route path="/forgetPassword" exact
             component={ForgetPassword}></Route>

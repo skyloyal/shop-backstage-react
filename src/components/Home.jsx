@@ -16,7 +16,6 @@ import logo from '../assets/img/heima.png'
 import Auth from './template/Auth'
 const { Header, Sider, Content } = Layout;
 
-
 export default class Home extends Auth {
 
   // 导航对象
@@ -42,11 +41,11 @@ export default class Home extends Auth {
   // [methods]获取菜单列表
   getMenuList = async () => {
     console.log('开始获取菜单列表')
-    const { data: res } = await this.$axios.get('menus')
+    const { data: res } = await this.$axios.get('/menus')
     if (res.meta.status !== 200) {
       return this.$message.error('获取菜单失败')
     }
-    console.log(res.data)
+    // console.log(res.data)
     this.setState({ menus: res.data })
     console.log(this.state.menus)
   }
@@ -67,21 +66,9 @@ export default class Home extends Auth {
     this.history.push(`/home/${path}`, { item1, item2 })
   }
 
-  // [lifecycle]
-  constructor(props) {
-    super(props)
-    // console.log(props)
-    // 鉴权
-    if (!this.isAuth()) {
-      this.history.push('/login')
-    } else if (props.location.pathname === '/home') {
-      this.history.push('/home/welcome')
-      this.getMenuList()
-    } else {
-      this.getMenuList()
-    }
+  componentDidMount() {
+    this.getMenuList()
   }
-
   // [lifecycle]
   render() {
     return (
@@ -119,17 +106,10 @@ export default class Home extends Auth {
                     >
                       {item1.children.map(item2 => {
                         return (
-                          <Menu.Item onClick={this.switchPage(`${item2.path}`, item1, item2)}
+                          <Menu.Item
+                            onClick={this.switchPage(`${item2.path}`, item1, item2)}
                             key={item2.id + ''}
                           >
-                            {/* to={`/home/${item2.path}`} */}
-                            {/* <Link className="activeItem"
-                              to={{
-                                pathname: `/home/${item2.path}`,
-                                state: { id: 'hello wordl' }
-                              }}>
-                              {item2.authName}
-                            </Link> */}
                             {item2.authName}
                           </Menu.Item>
 
@@ -143,6 +123,7 @@ export default class Home extends Auth {
           </Sider>
           {/* 内容展示区 */}
           <Content className="myContent">
+
             {this.props.children}
           </Content>
         </Layout>

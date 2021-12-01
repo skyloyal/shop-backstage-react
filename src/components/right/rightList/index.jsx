@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 // antd
-import { Card, Table, Tag } from 'antd'
+import { Card, Table, Tag, Breadcrumb } from 'antd'
 // 自定义样式
 import './index.scss'
-// 自定义组件
-import Breadnav from '../../template/BreadNav'
 
 class Index extends Component {
   // [standard] 获取权限列表
@@ -63,15 +61,14 @@ class Index extends Component {
   }
   // [lifecycle]
   render() {
-    const params = this.props.location.state || {}
-    const item1 = params.item1 || ''
-    const item2 = params.item2 || ''
     return (
       <div className="rightList_container">
         {/* 面包屑导航区 */}
-        <Breadnav className="rightList_top"
-          item1={item1} item2={item2}>
-        </Breadnav>
+        <Breadcrumb separator=">">
+          <Breadcrumb.Item href="/home/welcome">首页</Breadcrumb.Item>
+          <Breadcrumb.Item>权限管理</Breadcrumb.Item>
+          <Breadcrumb.Item>权限列表</Breadcrumb.Item>
+        </Breadcrumb>
         {/* 卡片视图区 */}
         <Card className="rightList_show">
           <Table

@@ -1,0 +1,21 @@
+.addGood_container {
+  .addGood_nav {
+  }
+  .addGood_show {
+    margin-top: 10px;
+    .addGood_steps {
+      margin: 10px 0px 10px 0px;
+    }
+    .addGood_tabs {
+      .addGood_form {
+        margin-top: 10px;
+        .addGood_input {
+          width: 400px;
+        }
+      }
+      .addGood_quill {
+        height: 200px;
+      }
+    }
+  }
+}

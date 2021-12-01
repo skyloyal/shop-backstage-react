@@ -1,0 +1,21 @@
+.editGood_container {
+  .editGood_nav {
+  }
+  .editGood_show {
+    margin-top: 10px;
+    .editGood_steps {
+      margin: 10px 0px 10px 0px;
+    }
+    .editGood_tabs {
+      .editGood_form {
+        margin-top: 10px;
+        .editGood_input {
+          width: 400px;
+        }
+      }
+      .editGood_quill {
+        height: 200px;
+      }
+    }
+  }
+}

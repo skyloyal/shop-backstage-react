@@ -1,17 +1,14 @@
-import Auth from '../template/Auth'
+import { createRef } from 'react'
 // antd
 import {
   Card, Input, Button, Row, Col,
   Table, Pagination, Switch, Modal,
-  Form, Radio, Space
+  Form, Radio, Space, Breadcrumb
 } from 'antd';
 import { ExclamationCircleOutlined } from '@ant-design/icons'
 // 自定义样式
 import './index.scss'
-// 自定义组件
-import Breadnav from '../template/BreadNav'
-import { createRef } from 'react';
-
+import Auth from '../template/Auth'
 export default class User extends Auth {
 
   // 导航对象
@@ -347,20 +344,19 @@ export default class User extends Auth {
   }
 
   // [lifecycle]
-  constructor(props) {
-    super(props)
+  componentDidMount() {
     this.getUserList()
   }
   // [lifecycle]
   render() {
-    // console.log(this.props)
-    const params = this.props.location.state || {}
-    const item1 = params.item1 || ''
-    const item2 = params.item2 || ''
     return (
       <div className="user_container">
         {/* 面包屑导航区 */}
-        <Breadnav item1={item1} item2={item2}></Breadnav>
+        <Breadcrumb separator=">">
+          <Breadcrumb.Item href="/home/welcome">首页</Breadcrumb.Item>
+          <Breadcrumb.Item>用户管理</Breadcrumb.Item>
+          <Breadcrumb.Item>用户列表</Breadcrumb.Item>
+        </Breadcrumb>
         {/* 内容卡片区 */}
         <Card className="user_show">
           <Row gutter={20}>

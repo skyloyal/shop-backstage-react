@@ -909,12 +909,12 @@ type=tree
 {
     "data": [
         {
-            "attr_id": 1,
-            "attr_name": "cpu",
-            "cat_id": 22,
-            "attr_sel": "only",
-            "attr_write": "manual",
-            "attr_vals": "ffff"{}
+            "attr_id": 3077,
+            "attr_name": "版式,
+            "cat_id": 6,
+            "attr_sel": "many",
+            "attr_write": "list",
+            "attr_vals": "49吋4K超薄曲面 人工智能,55吋4K观影曲面 30核HDR,55吋4K超薄曲面 人工智能,65吋4K超薄曲面 人工智能"
         }
     ],
     "meta": {
@@ -1259,50 +1259,37 @@ type=tree
 ```
 {
     "data": {
-        "goods_id": 145,
-        "goods_name": "test_goods_name2",
-        "goods_price": 20,
-        "goods_number": 30,
-        "goods_weight": 40,
-        "goods_introduce": "abc",
-        "goods_big_logo": "",
-        "goods_small_logo": "",
-        "goods_state": 1,
-        "add_time": 1512962370,
-        "upd_time": 1512962370,
-        "hot_mumber": 0,
-        "is_promote": false,
-        "pics": [
-            {
-                "pics_id": 397,
-                "goods_id": 145,
-                "pics_big": "uploads/goodspics/big_30f08d52c551ecb447277eae232304b8",
-                "pics_mid": "uploads/goodspics/mid_30f08d52c551ecb447277eae232304b8",
-                "pics_sma": "uploads/goodspics/sma_30f08d52c551ecb447277eae232304b8"
-            }
-        ],
-        "attrs": [
-            {
-                "goods_id": 145,
-                "attr_id": 15,
-                "attr_value": "ddd",
-                "add_price": null,
-                "attr_name": "fffffff",
-                "attr_sel": "many",
-                "attr_write": "list",
-                "attr_vals": ""
-            },
-            {
-                "goods_id": 145,
-                "attr_id": 15,
-                "attr_value": "eee",
-                "add_price": null,
-                "attr_name": "fffffff",
-                "attr_sel": "many",
-                "attr_write": "list",
-                "attr_vals": ""
-            }
-        ]
+		add_time: 1638255577
+		attrs: (4) [{
+			add_price: null
+            attr_id: 1456
+            attr_name: "能耗"
+            attr_sel: "many"
+            attr_vals: "圆筒智行两匹三级能效,圆筒智行三匹三级能效,风尊两匹升降面板手机遥控wife链接,风尊三匹升降面板手机遥控wife链接,圆筒制冷王两匹一级能效,圆筒制冷王三匹一级能效,圆筒智能王两匹一级能效,圆筒智能王三匹一级能效"
+            attr_value: "圆筒智行两匹三级能效,圆筒智行三匹三级能效,风尊两匹升降面板手机遥控wife链接,风尊三匹升降面板手机遥控wife链接,圆筒制冷王两匹一级能效,圆筒制冷王三匹一级能效,圆筒智能王两匹一级能效,圆筒智能王三匹一级能效"
+            attr_write: "list"
+            goods_id: 933
+		}, {…}, {…}, {…}]
+		cat_id: 24
+         cat_one_id: 1
+         cat_three_id: 24
+         cat_two_id: 4
+         delete_time: null
+         goods_big_logo: ""
+         goods_cat: "1,4,24"
+         goods_id: 933
+         goods_introduce: "<p>纯纯牛马</p>"
+         goods_name: "纯纯牛马"
+         goods_number: 15
+         goods_price: 15
+         goods_small_logo: ""
+         goods_state: null
+         goods_weight: 15
+         hot_mumber: 0
+         is_del: "0"
+         is_promote: false
+         pics: []
+         upd_time: 1638255577
     },
     "meta": {
         "msg": "创建商品成功",
@@ -1637,6 +1624,19 @@ brew install GraphicsMagick
 - Windows [点击下载](https://sourceforge.net/projects/graphicsmagick/files/graphicsmagick-binaries/1.3.27/GraphicsMagick-1.3.27-Q8-win64-dll.exe/download)
 
 ## 1.9. 图片上传
+
+配置
+
+```jsx
+uploadURL: 'http://127.0.0.1:8888/api/private/v1/upload',
+headerObj: {
+        Authorization: window.sessionStorage.getItem('token')
+},
+previewPath: '',
+previewVisible: false,
+```
+
+
 
 - 请求路径：upload
 - 请求方法：post

@@ -4,7 +4,7 @@ import {
   Card, Row, Col, Table,
   Form, Modal, Button, Tag,
   Popconfirm,
-  Input, Tree
+  Input, Tree, Breadcrumb
 } from 'antd'
 // 引入antd图标
 import {
@@ -12,8 +12,6 @@ import {
   SettingOutlined, CaretRightOutlined,
   CloseCircleFilled, ExclamationCircleOutlined
 } from '@ant-design/icons'
-// 引入自定义面包屑模板
-import Breadnav from '../../template/BreadNav'
 // 引入自定义scss
 import './index.scss'
 class RoleList extends Component {
@@ -393,13 +391,14 @@ class RoleList extends Component {
   }
   // [lifecycle]
   render() {
-    const params = this.props.location.state || {}
-    const item1 = params.item1 || ''
-    const item2 = params.item2 || ''
     return (
       <div className="role_container">
         {/* 面包屑导航区 */}
-        <Breadnav item1={item1} item2={item2}></Breadnav>
+        <Breadcrumb separator=">">
+          <Breadcrumb.Item href="/home/welcome">首页</Breadcrumb.Item>
+          <Breadcrumb.Item>权限管理</Breadcrumb.Item>
+          <Breadcrumb.Item>角色列表</Breadcrumb.Item>
+        </Breadcrumb>
         {/* 卡片视图区 */}
         <Card className="role_show">
           {/* 添加角色 */}
