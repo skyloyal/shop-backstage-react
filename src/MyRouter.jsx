@@ -15,6 +15,7 @@ import EditGood from './components/good/goodList/EditGood'
 import Params from './components/good/param'
 import Categories from './components/good/cate'
 import Orders from './components/order'
+import Reports from './components/report'
 // 内容页面
 import User from './components/user'
 
@@ -39,7 +40,7 @@ export default class MyRouter extends React.Component {
             <Route path="/home/params" component={Params}></Route>
             <Route path="/home/categories" component={Categories}></Route>
             <Route path="/home/orders" component={Orders}></Route>
-
+            <Route path="/home/reports" component={Reports}></Route>
           </Home>
           <Route path="/forgetPassword" exact
             component={ForgetPassword}></Route>

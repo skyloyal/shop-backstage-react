@@ -108,7 +108,6 @@ class Index extends Component {
     editOrderDialogVisible: false,
     progressDialogVisible: false,
     cityData: cityData,
-    progressDialogVisible: false,
     progressForm: [
 
       { content: '商品已经下单', timestamp: '2021-10-21 11:38' },
@@ -218,8 +217,8 @@ class Index extends Component {
         {/* 面包屑导航区 */}
         <Breadcrumb separator=">">
           <Breadcrumb.Item href="/home/welcome">首页</Breadcrumb.Item>
-          <Breadcrumb.Item>权限管理</Breadcrumb.Item>
-          <Breadcrumb.Item>权限列表</Breadcrumb.Item>
+          <Breadcrumb.Item>订单管理</Breadcrumb.Item>
+          <Breadcrumb.Item>订单列表</Breadcrumb.Item>
         </Breadcrumb>
         {/* 卡片视图区 */}
         <Card className="order_show">

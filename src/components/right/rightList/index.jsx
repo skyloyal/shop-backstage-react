@@ -12,7 +12,10 @@ class Index extends Component {
       return this.$message.error('获取列表失败')
     }
     console.log(res.data)
-    this.setState({ dataSource: res.data })
+    this.setState({
+      dataSource: res.data,
+      total: res.data.length
+    })
   }
   // [standard] 动态状态
   state = {
@@ -53,7 +56,9 @@ class Index extends Component {
           return tagElement
         }
       }
-    ]
+    ],
+    total: 0,
+
   }
   // [lifecycle] 
   componentDidMount() {
@@ -72,17 +77,15 @@ class Index extends Component {
         {/* 卡片视图区 */}
         <Card className="rightList_show">
           <Table
+            pagination={{
+              position: ['bottomLeft ']
+            }}
             dataSource={this.state.dataSource}
             columns={this.state.columns}
             rowKey={record => record.id}
           >
           </Table>
         </Card>
-        {/* 添加角色 */}
-        {/* 角色列表 */}
-
-        {/* 分配权限对话框 */}
-
       </div>
     );
   }

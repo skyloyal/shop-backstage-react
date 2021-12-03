@@ -405,7 +405,15 @@ class Index extends Component {
         </Breadcrumb>
         {/* 卡片视图区 */}
         <Card className="editGood_show">
+          <Row>
+            <Col>
+              <Button
+                onClick={this.backToGoodsPage}
+                className="primary">返回商品列表</Button>
+            </Col>
+          </Row>
           <Alert
+            className="editGood_alert"
             message="编辑商品信息。注意：*为必填项"
             type="info"
             showIcon closable={false} />

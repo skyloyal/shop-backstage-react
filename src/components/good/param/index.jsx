@@ -65,7 +65,9 @@ class Index extends Component {
           <div key={record.attr_id}>
             {record.attr_valsArr.map((item, index) => {
               return (
-                <Tag color="#108ee9" key={index}>
+                <Tag
+                  className="attr_valsTag"
+                  color="#108ee9" key={index}>
                   {item} &nbsp;<CloseCircleOutlined onClick={this.removeTag(record, index)} />
                 </Tag>
               )
@@ -77,7 +79,7 @@ class Index extends Component {
                 ref={record.inputRef}
                 type="text"
                 size="small"
-                style={{ width: 100 }}
+                style={{ width: 100, height: 30 }}
                 onChange={e => this.handleInputChange(e.target.value, record)}
                 onPressEnter={this.submitInputTag(record)}
                 onBlur={this.submitInputTag(record)}
@@ -86,7 +88,7 @@ class Index extends Component {
               <Tag
                 visible={!record.inputVisible}
                 onClick={this.showInputTag(record)}
-                className="site-tag-plus">
+                className="newTag">
                 + New Tag
               </Tag>
             }
@@ -132,7 +134,9 @@ class Index extends Component {
           <div key={record.attr_id}>
             {record.attr_valsArr.map((item, index) => {
               return (
-                <Tag color="#108ee9" key={index}>
+                <Tag
+                  className="attr_valsTag"
+                  color="#108ee9" key={index}>
                   {item} &nbsp;<CloseCircleOutlined onClick={this.removeTag(record, index)} />
                 </Tag>
               )
@@ -153,7 +157,7 @@ class Index extends Component {
               <Tag
                 visible={!record.inputVisible}
                 onClick={this.showInputTag(record)}
-                className="site-tag-plus">
+                className="newTag">
                 + New Tag
               </Tag>
             }
@@ -267,17 +271,30 @@ class Index extends Component {
   submitInputTag = (record) => () => {
     console.log(record)
     let inputContent = record.inputValue
+    // 判断是否有输入内容
     if (inputContent.trim().length === 0) {
       record.inputValue = ''
       record.inputVisible = false
       this.setState({})
       return
     }
+    // 判断新标签与旧标签是否重复
+    if (record.attr_valsArr.indexOf(inputContent) > 0) {
+      record.inputValue = ''
+      record.inputVisible = false
+      this.$message.warning('请不要添加重复标签')
+      this.setState({})
+      return
+    }
+    // 往tag数组添加新标签
     record.attr_valsArr.push(record.inputValue)
+    // 清空输入框
     record.inputValue = ''
+    // 提交后端
     this.saveAttrVals(record)
-    this.setState({})
+    // 强制重新渲染
     record.inputVisible = false
+    this.setState({})
   }
   // [methods]发请求保存商品属性
   saveAttrVals = async (record) => {

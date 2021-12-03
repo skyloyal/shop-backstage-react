@@ -1,5 +1,6 @@
 .goodParam_container {
   .goodParam_show {
+    margin: 10px 0px 10px 0px;
     .goodParam_alert {
       margin: 10px 0px 10px 0px;
     }
@@ -8,4 +9,22 @@
 
 .actionBtn {
   margin-right: 10px;
+}
+.attr_valsTag {
+  margin: 5px;
+  height: 30px;
+  line-height: 28px;
+  align-items: center;
+  vertical-align: middle;
+  border-radius: 5px;
+}
+.newTag {
+  background: #fff;
+  align-items: center;
+  vertical-align: middle;
+  border-radius: 5px;
+  border-style: dashed;
+  height: 30px;
+  line-height: 28px;
+  margin: 5px;
 }

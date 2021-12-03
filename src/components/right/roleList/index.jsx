@@ -69,7 +69,8 @@ class RoleList extends Component {
       return this.$message.error('移除权限失败')
     }
     role.children = res.data
-    this.forceUpdate()
+    // this.forceUpdate()
+    this.setState({})
     this.$message.success('移除权限成功')
   }
   // [cancel]取消操作
@@ -230,6 +231,7 @@ class RoleList extends Component {
     columns: [
       {
         title: '#',
+        key: 'id',
         // render:function(text,record,index){}
         render: (_1, _2, index) => {
           return (
@@ -254,6 +256,7 @@ class RoleList extends Component {
       },
       {
         title: '操作',
+        key: 'id',
         render: (text, record) => {
           return (
             <>
@@ -297,13 +300,13 @@ class RoleList extends Component {
             权限列表:
             {record.children.map((item1) => {
               return (
-                <Row className="expandRow">
+                <Row className="expandRow" key={item1.id}>
                   {/* 第一列,一级权限 */}
-                  <Col span="5">
+                  <Col span="5" key={item1.id}>
                     <Tag color="green" className="expandTag"
-                      key={item1.id}
                     >{item1.id}:{item1.authName}&nbsp;
                       <Popconfirm
+                        key={item1.id}
                         title="是否确认移除该权限?"
                         onConfirm={this.removeRight(record, item1.id)}
                         onCancel={this.cancelRemoveRight}
@@ -318,14 +321,14 @@ class RoleList extends Component {
                   <Col span="19">
                     {item1.children.map(item2 => {
                       return (
-                        <Row className="expandRow">
+                        <Row className="expandRow" key={item2.id}>
                           {/* 二级权限 */}
-                          <Col span="6">
+                          <Col span="6" key={item2.id}>
                             <Tag color="#E9AD52"
-                              key={item2.id}
                               className="expandTag">
                               {item2.id}:{item2.authName}&nbsp;
                               <Popconfirm
+                                key={item2.id}
                                 title="是否确认移除该权限?"
                                 onConfirm={this.removeRight(record, item2.id)}
                                 onCancel={this.cancelRemoveRight}

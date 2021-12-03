@@ -15,6 +15,8 @@ export default class User extends Auth {
   history = this.props.history
   // 添加用户表单ref
   addUserDialogFormRef = createRef()
+  // 编辑用户表单ref
+  editUserDialogFormRef = createRef()
   // 添加用户表单校验规则
   addUserDialogFormRules = {
     username: [
@@ -43,9 +45,6 @@ export default class User extends Auth {
       }
     ],
   }
-  // 编辑用户表单ref
-  editUserDialogFormRef = createRef()
-
   editUserDialogFormRules = {
     username: [
       { required: true, min: 3, max: 10, message: '用户名长度在3~10个字符之间', validateTrigger: 'onBlur' },
@@ -73,8 +72,6 @@ export default class User extends Auth {
       }
     ],
   }
-  // 设置用户角色表单ref
-  setUserDialogFormRef = createRef()
 
 
   // [standard]获取用户列表
@@ -103,10 +100,12 @@ export default class User extends Auth {
     this.getUserList()
   }
   // 改变用户状态
-  switchMg_state = (record) => async () => {
+  switchMg_state = async (checked, record) => {
     // console.log(record)
-    const { id, mg_state, username } = record
-    const { data: res } = await this.$axios.put(`users/${id}/state/${!mg_state}`)
+    console.log(checked)
+    const { id, username } = record
+
+    const { data: res } = await this.$axios.put(`users/${id}/state/${checked}`)
     // console.log(res)
     if (res.meta.status !== 200) {
       return this.$message.error('修改用户状态失败')
@@ -237,7 +236,10 @@ export default class User extends Auth {
 
   // [edit]关闭设置用户对话框
   closeSetUserDialog = () => {
-    this.setState({ setUserDialogVisible: false })
+    this.setState({
+      setUserDialogVisible: false,
+      selectedRoleId: 0
+    })
   }
   // [edit]提交设置用户表单
   submitSetUserDialog = async () => {
@@ -289,12 +291,9 @@ export default class User extends Auth {
         key: 'mg_state',
         dataIndex: 'mg_state',
         render: (text, record) => {
-          // console.log('text', text)// false
-          // console.log('record', record)//object
-          // console.log('index', index)//1~7
           return (
             <>
-              <Switch defaultChecked={text} onChange={this.switchMg_state(record)}></Switch>
+              <Switch defaultChecked={text} onChange={checked => this.switchMg_state(checked, record)}></Switch>
             </>
           )
         }
