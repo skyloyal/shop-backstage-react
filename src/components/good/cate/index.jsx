@@ -237,7 +237,7 @@ class Index extends Component {
         <Breadcrumb separator=">">
           <Breadcrumb.Item href="/home/welcome">首页</Breadcrumb.Item>
           <Breadcrumb.Item>商品管理</Breadcrumb.Item>
-          <Breadcrumb.Item>分类参数</Breadcrumb.Item>
+          <Breadcrumb.Item>商品分类</Breadcrumb.Item>
         </Breadcrumb>
         {/* 卡片视图区 */}
         <Card className="goodCate_show">

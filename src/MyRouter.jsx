@@ -14,6 +14,7 @@ import AddGood from './components/good/goodList/AddGood/index.jsx'
 import EditGood from './components/good/goodList/EditGood'
 import Params from './components/good/param'
 import Categories from './components/good/cate'
+import Orders from './components/order'
 // 内容页面
 import User from './components/user'
 
@@ -37,6 +38,8 @@ export default class MyRouter extends React.Component {
             <Route path="/home/editGood" exact component={EditGood}></Route>
             <Route path="/home/params" component={Params}></Route>
             <Route path="/home/categories" component={Categories}></Route>
+            <Route path="/home/orders" component={Orders}></Route>
+
           </Home>
           <Route path="/forgetPassword" exact
             component={ForgetPassword}></Route>

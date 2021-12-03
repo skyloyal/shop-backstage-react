@@ -1,0 +1,14 @@
+.order_container {
+  .order_show {
+    margin: 10px 0px 10px 0px;
+    .order_table {
+      margin: 10px 0px 10px 0px;
+    }
+  }
+}
+.timeLineItem {
+  color: #909399;
+  &:first-child {
+    color: #ff6704;
+  }
+}
