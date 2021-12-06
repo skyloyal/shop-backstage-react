@@ -4110,9 +4110,9 @@
     "lodash.uniq" "^4.5.0"
 
 "caniuse-lite@^1.0.0", "caniuse-lite@^1.0.30000981", "caniuse-lite@^1.0.30001109", "caniuse-lite@^1.0.30001125", "caniuse-lite@^1.0.30001181":
-  "integrity" "sha512-xJJqzyd+7GCJXkcoBiQ1GuxEiOBCLQ0aVW9HMekifZsAVGdj5eJ4mFB9fEhSHipq9IOk/QXFJUiIr9lZT+EsGw=="
-  "resolved" "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001191.tgz"
-  "version" "1.0.30001191"
+  "integrity" "sha512-KAOkuUtcQ901MtmvxfKD+ODHH9YVDYnBt+TGYSz2KIfnq22CiArbUxXPN9067gNbgMlnNYRSwho8OPXZPALB9Q=="
+  "resolved" "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001285.tgz"
+  "version" "1.0.30001285"
 
 "capture-exit@^2.0.0":
   "integrity" "sha512-PiT/hQmTonHhl/HFGN+Lx3JJUznrVYJ3+AQsnthneZbvW7x+f08Tk7yLJTLEOUvBTbduLeeBkxEaYXUOUrRq6g=="
@@ -4969,6 +4969,13 @@
   "integrity" "sha512-2u44ZG2OcNUO9HDp/Jl8C07x6pU/eTR3ncV91SiK3dhG9TWvRVsCoJw14Ckx5DgWkzGA3waZWO3d7pgqpUI/XA=="
   "resolved" "https://registry.npmjs.org/csstype/-/csstype-3.0.10.tgz"
   "version" "3.0.10"
+
+"customize-cra@^1.0.0":
+  "integrity" "sha512-DbtaLuy59224U+xCiukkxSq8clq++MOtJ1Et7LED1fLszWe88EoblEYFBJ895sB1mC6B4uu3xPT/IjClELhMbA=="
+  "resolved" "https://registry.npmjs.org/customize-cra/-/customize-cra-1.0.0.tgz"
+  "version" "1.0.0"
+  dependencies:
+    "lodash.flow" "^3.5.0"
 
 "cyclist@^1.0.1":
   "integrity" "sha1-WW6WmP0MgOEgOMK4LW6xs1tiJNk="
@@ -8606,6 +8613,11 @@
   "resolved" "https://registry.npmjs.org/lodash.debounce/-/lodash.debounce-4.0.8.tgz"
   "version" "4.0.8"
 
+"lodash.flow@^3.5.0":
+  "integrity" "sha1-h79AKSuM+D5OjOGjrkIJ4gBxZ1o="
+  "resolved" "https://registry.npmjs.org/lodash.flow/-/lodash.flow-3.5.0.tgz"
+  "version" "3.5.0"
+
 "lodash.isarray@^4.0.0":
   "integrity" "sha1-KspJayjEym1yZxUxNZDALm6jRAM="
   "resolved" "https://registry.npmjs.org/lodash.isarray/-/lodash.isarray-4.0.0.tgz"
@@ -11283,6 +11295,13 @@
     "regenerator-runtime" "^0.13.7"
     "whatwg-fetch" "^3.4.1"
 
+"react-app-rewired@^2.1.8":
+  "integrity" "sha512-wjXPdKPLscA7mn0I1de1NHrbfWdXz4S1ladaGgHVKdn1hTgKK5N6EdGIJM0KrS6bKnJBj7WuqJroDTsPKKr66Q=="
+  "resolved" "https://registry.npmjs.org/react-app-rewired/-/react-app-rewired-2.1.8.tgz"
+  "version" "2.1.8"
+  dependencies:
+    "semver" "^5.6.0"
+
 "react-color@^2.17.3", "react-color@2.17.3":
   "integrity" "sha512-1dtO8LqAVotPIChlmo6kLtFS1FP89ll8/OiA8EcFRDR+ntcK+0ukJgByuIQHRtzvigf26dV5HklnxDIvhON9VQ=="
   "resolved" "https://registry.npmjs.org/react-color/-/react-color-2.17.3.tgz"
@@ -11413,7 +11432,7 @@
     "prop-types" "^15.6.1"
     "warning" "^4.0.1"
 
-"react-scripts@4.0.3":
+"react-scripts@>=2.1.3", "react-scripts@4.0.3":
   "integrity" "sha512-S5eO4vjUzUisvkIPB7jVsKtuH2HhWcASREYWHAQ1FP5HyCv3xgn+wpILAEWkmy+A+tTNbSZClhxjT3qz6g4L1A=="
   "resolved" "https://registry.npmjs.org/react-scripts/-/react-scripts-4.0.3.tgz"
   "version" "4.0.3"
@@ -12361,6 +12380,11 @@
     "on-finished" "~2.3.0"
     "range-parser" "~1.2.1"
     "statuses" "~1.5.0"
+
+"serialize-javascript@^1.7.0":
+  "integrity" "sha512-0Vb/54WJ6k5v8sSWN09S0ora+Hnr+cX40r9F170nT+mSkaxltoE/7R3OrIdBSUv1OoiobH1QoWQbCnAO+e8J1A=="
+  "resolved" "https://registry.npmjs.org/serialize-javascript/-/serialize-javascript-1.9.1.tgz"
+  "version" "1.9.1"
 
 "serialize-javascript@^4.0.0":
   "integrity" "sha512-GaNA54380uFefWghODBWEGisLZFj00nS5ACs6yHa9nLqlLpVLO8ChDGeKRjZnV4Nh4n0Qi7nhYZD/9fCPzEqkw=="
@@ -13639,10 +13663,30 @@
   optionalDependencies:
     "uglify-to-browserify" "~1.0.0"
 
+"uglify-js@^3.6.0":
+  "integrity" "sha512-AbiSR44J0GoCeV81+oxcy/jDOElO2Bx3d0MfQCUShq7JRXaM4KtQopZsq2vFv8bCq2yMaGrw1FgygUd03RyRDA=="
+  "resolved" "https://registry.npmjs.org/uglify-js/-/uglify-js-3.14.4.tgz"
+  "version" "3.14.4"
+
 "uglify-to-browserify@~1.0.0":
   "integrity" "sha1-bgkk1r2mta/jSeOabWMoUKD4grc="
   "resolved" "https://registry.npmjs.org/uglify-to-browserify/-/uglify-to-browserify-1.0.2.tgz"
   "version" "1.0.2"
+
+"uglifyjs-webpack-plugin@^2.2.0":
+  "integrity" "sha512-mHSkufBmBuJ+KHQhv5H0MXijtsoA1lynJt1lXOaotja8/I0pR4L9oGaPIZw+bQBOFittXZg9OC1sXSGO9D9ZYg=="
+  "resolved" "https://registry.npmjs.org/uglifyjs-webpack-plugin/-/uglifyjs-webpack-plugin-2.2.0.tgz"
+  "version" "2.2.0"
+  dependencies:
+    "cacache" "^12.0.2"
+    "find-cache-dir" "^2.1.0"
+    "is-wsl" "^1.1.0"
+    "schema-utils" "^1.0.0"
+    "serialize-javascript" "^1.7.0"
+    "source-map" "^0.6.1"
+    "uglify-js" "^3.6.0"
+    "webpack-sources" "^1.4.0"
+    "worker-farm" "^1.7.0"
 
 "unbox-primitive@^1.0.1":
   "integrity" "sha512-tZU/3NqK3dA5gpE1KtyiJUrEB0lxnGkMFHptJ7q6ewdZ8s12QrODwNbhIJStmJkd1QDXa1NRA8aF2A1zk/Ypyw=="
