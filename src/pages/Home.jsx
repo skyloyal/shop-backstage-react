@@ -1,4 +1,5 @@
 // react
+import React from "react";
 import { Link } from "react-router-dom";
 // antd
 import { Layout, Button, Menu } from 'antd';
@@ -13,10 +14,11 @@ import {
 import './Home.scss'
 import logo from '../assets/img/heima.png'
 // 鉴权类
-import Auth from './template/Auth'
+// import Auth from '../template/Auth'
+import isAuth from "../template/Auth";
 const { Header, Sider, Content } = Layout;
 
-export default class Home extends Auth {
+export default class Home extends React.Component {
 
   // 导航对象
   history = this.props.history
@@ -67,6 +69,12 @@ export default class Home extends Auth {
   }
 
   componentDidMount() {
+    if (!isAuth()) {
+      this.history.push('/login')
+      return
+    }
+    // console.log('props', this.props)
+    this.history.push('/home/welcome')
     this.getMenuList()
   }
   // [lifecycle]
@@ -123,7 +131,6 @@ export default class Home extends Auth {
           </Sider>
           {/* 内容展示区 */}
           <Content className="myContent">
-
             {this.props.children}
           </Content>
         </Layout>

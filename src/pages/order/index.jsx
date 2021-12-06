@@ -5,7 +5,7 @@ import {
   Breadcrumb, Button, Table,
   Tag, Pagination, Row, Col,
   Card, Form, Input, Modal,
-  Cascader, Radio, Switch,
+  Cascader, Radio,
   InputNumber, Timeline
 } from 'antd'
 import { CheckCircleTwoTone, CloseCircleTwoTone, EditOutlined, EnvironmentOutlined } from '@ant-design/icons'
@@ -15,7 +15,7 @@ import dayjs from 'dayjs'
 import cityData from './cityData'
 // 自定义scss
 import './index.scss'
-
+import isAuth from '../../template/Auth';
 class Index extends Component {
 
   // ref
@@ -136,12 +136,14 @@ class Index extends Component {
     })
 
   }
+  // [methods]搜索框输入
   handleQueryChange = (e) => {
     const query = e.target.value
     console.log(query)
     let queryInfo = this.state.queryInfo
     this.setState({ queryInfo: { ...queryInfo, query: query } })
   }
+  // [methods]改变页码，每页数量时重新发送请求
   handlePageChange = (newPagenum, newPageSize) => {
     console.log('newPagenum:', newPagenum)
     console.log('newPageSize:', newPageSize)
@@ -155,12 +157,18 @@ class Index extends Component {
   }
   // [methods]展示编辑订单对话框
   showEditOrderDialog = (record) => () => {
+    let newRecord = { ...record }
+    if (newRecord.is_send === '否') {
+      newRecord.is_send = '0'
+    } else {
+      newRecord.is_send = '1'
+    }
     this.setState({
       editOrderDialogVisible: true
     }, () => {
       const current = this.editOrderDialogRef.current
       console.log(current)
-      current.setFieldsValue(record)
+      current.setFieldsValue(newRecord)
     })
   }
   // [methods]提交编辑订单对话框
@@ -176,8 +184,13 @@ class Index extends Component {
       }
     }
 
+    // const { data: res } = await this.$axios.put(`/orders/${editOrderObj.order_id}`, {
+    //   id: editOrderObj.order_id,
+    //   order_price: editOrderObj.order_price
+    // })
     const { data: res } = await this.$axios.put(`/orders/${editOrderObj.order_id}`, editOrderObj)
-    if (res.meta.status !== 200) {
+    console.log(res)
+    if (res.meta.status !== 201) {
       return this.$message.error('编辑订单失败')
     }
     this.$message.success('编辑订单成功')
@@ -208,6 +221,10 @@ class Index extends Component {
   }
   // [lifecycle]
   componentDidMount() {
+    if (!isAuth()) {
+      this.history.push('/login')
+      return
+    }
     this.getOrderList()
   }
   // [lifecycle]
@@ -298,8 +315,8 @@ class Index extends Component {
               name="pay_status"
               label="是否已付款">
               <Radio.Group>
-                <Radio value="0">未付款</Radio>
-                <Radio value="1">已付款</Radio>
+                <Radio value={"0"}>未付款</Radio>
+                <Radio value={"1"}>已付款</Radio>
               </Radio.Group>
             </Form.Item>
             <Form.Item
@@ -317,8 +334,8 @@ class Index extends Component {
               name="is_send"
             >
               <Radio.Group>
-                <Radio value="否">未发货</Radio>
-                <Radio value="是">已发货</Radio>
+                <Radio value="0">未发货</Radio>
+                <Radio value="1">已发货</Radio>
               </Radio.Group>
             </Form.Item>
           </Form>

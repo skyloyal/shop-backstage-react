@@ -7,7 +7,10 @@ import * as echarts from 'echarts'
 import _ from 'lodash'
 // 自定义scss
 import './index.scss'
+import isAuth from '../../template/Auth';
 class Index extends Component {
+
+  history = this.props.history
 
   state = {
     chartData: {},
@@ -58,6 +61,10 @@ class Index extends Component {
     mychart.setOption(result)
   }
   componentDidMount() {
+    if (!isAuth()) {
+      this.history.push('/login')
+      return
+    }
     Promise.resolve(this.getReport()).then(() => {
       this.drawChart()
     })

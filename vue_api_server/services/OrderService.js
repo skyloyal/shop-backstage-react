@@ -76,8 +76,11 @@ function doCheckOrderParams(params) {
 		if(params.goods) {
 			info.goods = params.goods;
 		}
-
-		info.pay_status = '0';
+    
+		// info.pay_status = '0';
+    if(params.pay_status) {
+			info.pay_status = params.pay_status;
+		}
 		if(params.order_id) info.create_time = (Date.parse(new Date())/1000);
 		info.update_time = (Date.parse(new Date())/1000);
 

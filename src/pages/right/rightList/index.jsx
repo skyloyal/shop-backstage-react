@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Card, Table, Tag, Breadcrumb } from 'antd'
 // 自定义样式
 import './index.scss'
-
+import isAuth from '../../../template/Auth';
 class Index extends Component {
   // [standard] 获取权限列表
   getRightList = async () => {
@@ -62,6 +62,10 @@ class Index extends Component {
   }
   // [lifecycle] 
   componentDidMount() {
+    if (!isAuth()) {
+      this.history.push('/login')
+      return
+    }
     this.getRightList()
   }
   // [lifecycle]

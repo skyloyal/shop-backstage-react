@@ -1,4 +1,4 @@
-import { createRef } from 'react'
+import { createRef, Component } from 'react'
 // antd
 import {
   Card, Input, Button, Row, Col,
@@ -8,8 +8,8 @@ import {
 import { ExclamationCircleOutlined } from '@ant-design/icons'
 // 自定义样式
 import './index.scss'
-import Auth from '../template/Auth'
-export default class User extends Auth {
+import isAuth from '../../template/Auth';
+export default class User extends Component {
 
   // 导航对象
   history = this.props.history
@@ -344,6 +344,10 @@ export default class User extends Auth {
 
   // [lifecycle]
   componentDidMount() {
+    if (!isAuth()) {
+      this.history.push('/login')
+      return
+    }
     this.getUserList()
   }
   // [lifecycle]

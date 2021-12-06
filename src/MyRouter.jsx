@@ -3,21 +3,21 @@ import React from "react";
 import { Switch, Route, Redirect, Router } from 'react-router-dom'
 import { createBrowserHistory } from 'history'
 // 自定义jsx
-import Login from './components/login/Login'
-import Home from './components/Home'
-import ForgetPassword from './components/login/ForgetPassword'
-import Welcome from './components/Welcome'
-import RoleList from './components/right/roleList'
-import RightList from './components/right/rightList'
-import Goods from './components/good/goodList/'
-import AddGood from './components/good/goodList/AddGood/index.jsx'
-import EditGood from './components/good/goodList/EditGood'
-import Params from './components/good/param'
-import Categories from './components/good/cate'
-import Orders from './components/order'
-import Reports from './components/report'
+import Login from './pages/login/Login'
+import Home from './pages/Home'
+import ForgetPassword from './pages/login/ForgetPassword'
+import Welcome from './pages/Welcome'
+import RoleList from './pages/right/roleList'
+import RightList from './pages/right/rightList'
+import Goods from './pages/good/goodList/'
+import AddGood from './pages/good/goodList/AddGood/index.jsx'
+import EditGood from './pages/good/goodList/EditGood'
+import Params from './pages/good/param'
+import Categories from './pages/good/cate'
+import Orders from './pages/order'
+import Reports from './pages/report'
 // 内容页面
-import User from './components/user'
+import User from './pages/user'
 
 export default class MyRouter extends React.Component {
 
@@ -28,7 +28,7 @@ export default class MyRouter extends React.Component {
     return (
       <Router history={this.history}>
         <Switch>
-          <Route path="/login" component={Login}></Route>
+          <Route path="/login" component={Login} ></Route>
           <Home path="/home" history={this.history}>
             <Route path="/home/welcome" component={Welcome}></Route>
             <Route path="/home/users" component={User}></Route>
@@ -48,5 +48,6 @@ export default class MyRouter extends React.Component {
         </Switch >
       </Router >
     )
+
   }
 }

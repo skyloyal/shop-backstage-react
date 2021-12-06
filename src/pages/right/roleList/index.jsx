@@ -14,6 +14,7 @@ import {
 } from '@ant-design/icons'
 // 引入自定义scss
 import './index.scss'
+import isAuth from '../../../template/Auth';
 class RoleList extends Component {
 
   // [get]获取角色列表
@@ -153,17 +154,18 @@ class RoleList extends Component {
       selectedRole: record
     })
     // 两个数组，一个负责接收最后一级权限的ID，一个负责接收父级权限的ID
-    let checkedKeysValueArr = []
-    let expandedKeysValueArr = []
-    this.getLeafKeys(record, checkedKeysValueArr, expandedKeysValueArr)
+    let checkedKeysValue = []
+    let expandedKeysValue = []
+    this.getLeafKeys(record, checkedKeysValue, expandedKeysValue)
     // 父级权限ID列表第一个id不是权限，而是角色id，所以要去除第一个
-    expandedKeysValueArr.shift()
-    console.log('checkedKeys', checkedKeysValueArr)
-    console.log('expandedKeys', expandedKeysValueArr)
+    expandedKeysValue.shift()
+    console.log('checkedKeys', checkedKeysValue)
+    console.log('expandedKeys', expandedKeysValue)
     // 渲染最后一级权限、展开父级权限
     this.setState({
-      checkedKeysValue: checkedKeysValueArr,
-      expandedKeysValue: expandedKeysValueArr
+      checkedKeysValue: checkedKeysValue,
+      expandedKeysValue: expandedKeysValue,
+      halfCheckedKeysValue: expandedKeysValue
     })
   }
   // [edit]关闭设置权限对话框
@@ -389,6 +391,10 @@ class RoleList extends Component {
 
   // [lifecycle]
   componentDidMount() {
+    if (!isAuth()) {
+      this.history.push('/login')
+      return
+    }
     this.getRoleList()
     this.getRightList()
   }

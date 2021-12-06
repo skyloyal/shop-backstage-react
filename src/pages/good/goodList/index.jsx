@@ -9,6 +9,7 @@ import {
 import { ExclamationCircleOutlined } from '@ant-design/icons'
 // 自定义scss
 import './index.scss'
+import isAuth from '../../../template/Auth';
 
 class Index extends Component {
 
@@ -139,6 +140,10 @@ class Index extends Component {
   history = this.props.history
   // [lifecycle]
   componentDidMount() {
+    if (!isAuth()) {
+      this.history.push('/login')
+      return
+    }
     this.getGoodList()
   }
   // [lifecycle]

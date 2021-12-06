@@ -1,5 +1,5 @@
 // react
-import React, { Component, createRef } from 'react';
+import React, { createRef } from 'react';
 
 // antd
 import {
@@ -8,10 +8,10 @@ import {
   Input, Card, Breadcrumb,
   Cascader
 } from 'antd'
-
+import isAuth from '../../../template/Auth'
 // 自定义scss
 import './index.scss'
-class Index extends Component {
+class Index extends React.Component {
 
   // history
   history = this.props.history
@@ -225,6 +225,10 @@ class Index extends Component {
 
   // [lifecycle]
   componentDidMount() {
+    if (!isAuth()) {
+      this.history.push('/login')
+      return
+    }
     this.getCateList()
   }
 

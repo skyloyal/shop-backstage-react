@@ -1726,8 +1726,8 @@ previewVisible: false,
 | id           | 订单 ID      | 不能为空`携带在url中`                      |
 | is_send      | 订单是否发货 | 1:已经发货，0:未发货                       |
 | order_pay    | 订单支付     | 支付方式 0 未支付 1 支付宝 2 微信 3 银行卡 |
-| order_price  | 订单价格     |                                            |
-| order_number | 订单数量     |                                            |
+| order_price  | 订单价格     | 不能为空                                   |
+| order_number | 订单流水号   |                                            |
 | pay_status   | 支付状态     | 订单状态： 0 未付款、1 已付款              |
 
 - 请求数据说明
@@ -1772,7 +1772,7 @@ previewVisible: false,
     },
     "meta": {
         "msg": "获取成功",
-        "status": 200
+        "status": 201
     }
 }
 ```

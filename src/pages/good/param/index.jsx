@@ -12,6 +12,7 @@ import { CloseCircleOutlined } from '@ant-design/icons'
 
 // 自定义scss
 import './index.scss'
+import isAuth from '../../../template/Auth';
 // antd子组件
 const { TabPane } = Tabs;
 
@@ -388,6 +389,10 @@ class Index extends Component {
 
   // [lifecycle]
   componentDidMount() {
+    if (!isAuth()) {
+      this.history.push('/login')
+      return
+    }
     this.getCateList()
   }
   // [lifecycle]

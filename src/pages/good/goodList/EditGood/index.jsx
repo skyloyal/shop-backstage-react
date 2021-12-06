@@ -15,10 +15,11 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 // 自定义scss
 import './index.scss'
+import isAuth from '../../../../template/Auth';
 // antd子组件
 const { Step } = Steps;
 const { TabPane } = Tabs;
-const { TextArea } = Input;
+// const { TextArea } = Input;
 
 // 文件对象转base64
 function getBase64(file) {
@@ -331,6 +332,10 @@ class Index extends Component {
   }
   // [lifecycle]
   async componentDidMount() {
+    if (!isAuth()) {
+      this.history.push('/login')
+      return
+    }
     // 根据id查询该商品信息
     const paramsOrigin = this.props.location.search//"?id=xxxx"
     const params = qs.parse(paramsOrigin)//{id:'933'}
