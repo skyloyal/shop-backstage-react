@@ -3,6 +3,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 // axios
 import axios from 'axios'
+// nprogress
+import NProgress from 'nprogress';
+// import 'nprogress/nprogress.css'
 // 调试用的，不清楚怎么用
 import reportWebVitals from './reportWebVitals';
 // 外部资源,css,图片等
@@ -13,11 +16,18 @@ import App from './App';
 // antd
 import { message } from 'antd'
 
+// 配置请求路径
 axios.defaults.baseURL = 'http://127.0.0.1:8888/api/private/v1/'
 axios.interceptors.request.use(config => {
+  NProgress.start()
   config.headers.Authorization = window.sessionStorage.getItem('token')
   return config
 })
+axios.interceptors.response.use(config => {
+  NProgress.done()
+  return config
+})
+
 React.Component.prototype.$axios = axios
 React.Component.prototype.$message = message
 ReactDOM.render(

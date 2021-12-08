@@ -395,6 +395,11 @@ class Index extends Component {
     }
     this.getCateList()
   }
+  componentWillUnmount() {
+    this.setState = (state, callback) => {
+      return
+    }
+  }
   // [lifecycle]
   render() {
     return (
@@ -415,7 +420,7 @@ class Index extends Component {
               <span>选择商品分类：</span>
               <Cascader
                 value={this.state.selectedCateIdArr}
-                className="goodParam_cascader"
+                // className="goodParam_cascader"
                 placeholder="请选择商品分类"
                 allowClear
                 options={this.state.cateList}
