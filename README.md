@@ -8,7 +8,7 @@
 
 ### 下载依赖包
 
-首先，必须下载nodejs，建议到官网[http://nodejs.cn]，下载稳定的版本（不建议使用最新版本）。
+首先，必须下载nodejs，建议到官网[nodejs官网](http://nodejs.cn)，下载稳定的版本（不建议使用最新版本）。
 
 clone或download本项目。在命令行进行以下操作：
 
