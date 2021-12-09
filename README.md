@@ -51,7 +51,7 @@ node app
 
 所有api都写在，vue_api_server下，电商管理后台 API 接口文档.md。因为该服务器所有请求都必须要有token认证，除了登录。所以测试以下登录功能：
 
-![image-20211206095815995](C:\Users\mgj\AppData\Roaming\Typora\typora-user-images\image-20211206095815995.png)
+![postman请求](./Readme图片/image-20211206095815995.png)
 
 ### 开启前端项目
 
@@ -62,7 +62,7 @@ npm run start
 
 如果看到下面画面，则说明已经开启成功。
 
-![image-20211206100023856](C:\Users\mgj\AppData\Roaming\Typora\typora-user-images\image-20211206100023856.png)
+![登录界面](./Readme图片/image-20211206100023856.png)
 
 ## 开始你的探索旅途
 
